@@ -1,0 +1,9 @@
+{
+    "name": "etherflow",
+    "description": "Flow of ethereum blockchain",
+    "version": "1.0.0",
+    "author": "AmirRezaDalir",
+    "license": "MIT",
+    "main": "index.js",
+    "module": ""
+}
