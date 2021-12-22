@@ -5,10 +5,19 @@
     "author": "AmirRezaDalir",
     "license": "MIT",
     "main": "dist/index.js",
+    "bin": {
+        "etherflow": "./cli.js"
+    },
     "scripts": {
         "dev": "webpack --config webpack.config.js --watch --mode development ",
         "build": "webpack --config webpack.config.js --mode production"
     },
+    "repository": "https://github.com/dalirnet/etherflow",
+    "keywords": [
+        "ethereum",
+        "eth",
+        "txs"
+    ],
     "devDependencies": {
         "@babel/core": "^7.16.5",
         "@babel/preset-env": "^7.16.5",
@@ -20,6 +29,8 @@
     },
     "dependencies": {
         "axios": "^0.24.0",
+        "inquirer": "^8.2.0",
+        "loading-cli": "^1.1.0",
         "web3-eth": "^1.6.1",
         "web3-utils": "^1.6.1"
     }
