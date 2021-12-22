@@ -6,9 +6,9 @@ class SdkMethod extends MethodInterface {
     constructor() {
         super()
         this.providers = {
-            mew: 'https://nodes.mewapi.io/rpc/eth',
+            mew: 'https://nodes.mewapi.io/rpc/eth/',
             ava: 'https://mainnet.eth.cloud.ava.do/',
-            mycrypto: 'https://api.mycryptoapi.com/eth',
+            mycrypto: 'https://api.mycryptoapi.com/eth/',
         }
     }
 
