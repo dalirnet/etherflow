@@ -32,16 +32,15 @@ class SdkMethod extends MethodInterface {
                 return new web3(provider).getTransaction(txsHash).then(({ from = null, to = null, value = 0, blockHash = null } = {}) => {
                     return {
                         status: !!blockHash,
-                        value: web3Utils.fromWei(value),
+                        value: Number(web3Utils.fromWei(value)),
                         from,
                         to,
-                        blockHash,
                     }
                 })
             })
         )
             .then((values) => {
-                const successfulTxs = values.find(({ value }) => value.status)
+                const successfulTxs = values.find(({ value = {} }) => value?.status)
                 if (successfulTxs) {
                     return successfulTxs.value
                 }

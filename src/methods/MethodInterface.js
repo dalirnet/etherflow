@@ -20,7 +20,6 @@ class MethodInterface {
         value: 0,
         from: null,
         to: null,
-        blockHash: null,
     }
 
     static error(message, scope = 'Implement') {

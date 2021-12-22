@@ -28,13 +28,12 @@ class HttpMethod extends MethodInterface {
             .then(({ data }) => {
                 return data
             })
-            .then(({ addresses: [from = null, to = null] = [], total: value = 0, block_hash: blockHash = null } = {}) => {
+            .then(({ addresses: [from = null, to = null] = [], total = 0, block_hash = null } = {}) => {
                 return {
-                    status: !!blockHash,
-                    value: web3Utils.fromWei(value.toString()),
-                    from,
-                    to,
-                    blockHash,
+                    status: !!block_hash,
+                    value: Number(web3Utils.fromWei(total.toString())),
+                    from: `0x${from}`,
+                    to: `0x${to}`,
                 }
             })
             .catch(() => {
