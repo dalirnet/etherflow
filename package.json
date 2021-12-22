@@ -10,7 +10,8 @@
     },
     "scripts": {
         "dev": "webpack --config webpack.config.js --watch --mode development ",
-        "build": "webpack --config webpack.config.js --mode production"
+        "build": "webpack --config webpack.config.js --mode production",
+        "test": "jest --testTimeout=20000 --verbose"
     },
     "repository": "https://github.com/dalirnet/etherflow",
     "keywords": [
@@ -23,6 +24,7 @@
         "@babel/preset-env": "^7.16.5",
         "@babel/runtime": "^7.16.5",
         "babel-loader": "^8.2.3",
+        "jest": "^27.4.5",
         "terser-webpack-plugin": "^5.3.0",
         "webpack": "^5.65.0",
         "webpack-cli": "^4.9.1"
