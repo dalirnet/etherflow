@@ -50,4 +50,5 @@ inquirer
     .then(({ loading, result }) => {
         loading.stop()
         console.dir(result)
+        process.exit(0)
     })

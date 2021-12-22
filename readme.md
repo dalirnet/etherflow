@@ -173,6 +173,10 @@ console.log(result)
 
 ```bash
 npx etherflow
+
+# or
+
+npx github:dalirnet/etherflow
 ```
 
 #### Test
