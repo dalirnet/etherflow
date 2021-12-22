@@ -32,8 +32,8 @@ class HttpMethod extends MethodInterface {
                 return {
                     status: !!block_hash,
                     value: Number(web3Utils.fromWei(total.toString())),
-                    from: `0x${from}`,
-                    to: `0x${to}`,
+                    from: `0x${from}`.toLowerCase(),
+                    to: `0x${to}`.toLowerCase(),
                 }
             })
             .catch(() => {

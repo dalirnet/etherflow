@@ -33,8 +33,8 @@ class SdkMethod extends MethodInterface {
                     return {
                         status: !!blockHash,
                         value: Number(web3Utils.fromWei(value)),
-                        from,
-                        to,
+                        from: from.toLowerCase(),
+                        to: to.toLowerCase(),
                     }
                 })
             })

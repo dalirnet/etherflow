@@ -55,12 +55,18 @@ class CrawlerMethod extends MethodInterface {
                 return {
                     status: status === 'success',
                     value: value ? Number(value.match(/^[0-9.]+/)[0]) : 0,
-                    from: from ? from.trim().replace(/.*(?=0x)/, '') : null,
+                    from: from
+                        ? from
+                              .trim()
+                              .replace(/.*(?=0x)/, '')
+                              .toLowerCase()
+                        : null,
                     to: interactedwithto
                         ? interactedwithto
                               .replace(/contract/i, '')
                               .trim()
                               .replace(/.*(?=0x)/, '')
+                              .toLowerCase()
                         : null,
                 }
             })
