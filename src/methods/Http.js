@@ -24,7 +24,7 @@ class HttpMethod extends MethodInterface {
 
     getTxnStatus(txnHash) {
         return axios
-            .get(`${this.provider}txn/${txnHash}`)
+            .get(`${this.provider}txs/${txnHash}`)
             .then(({ data }) => {
                 return data
             })
