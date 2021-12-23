@@ -32,14 +32,14 @@ class CrawlerMethod extends MethodInterface {
                 return data
             })
             .then((context) => {
-                return context.match(/\<div\s+id="ContentPlaceHolder1_maintable".*?>.*<div\s+id="ContentPlaceHolder1_divTxFee".*?>/is)
+                return context.match(/<div\s+id="ContentPlaceHolder1_maintable".*?>.*<div\s+id="ContentPlaceHolder1_divTxFee".*?>/is) /* https://regexr.com/6c4af */
             })
             .then(([match] = []) => {
                 if (match) {
                     return match
-                        .replace(/<(.|\n)*?>/g, '')
-                        .replace(/:\s+/g, '::')
-                        .matchAll(/^(.*?):+(.*)$/gm)
+                        .replace(/<(.|\n)*?>/g, '') /* https://regexr.com/6c4ba */
+                        .replace(/:\s+/g, '::') /* https://regexr.com/6c4bg */
+                        .matchAll(/^(.*?):+(.*)$/gm) /* https://regexr.com/6c4bj */
                 }
 
                 return Promise.reject()
@@ -51,7 +51,7 @@ class CrawlerMethod extends MethodInterface {
                     return keep
                 }, {})
             })
-            .then(({ status = null, from = null, interactedwithto = null, value = null } = {}) => {
+            .then(({ status = null, from = null, to = null, interactedwithto = null, value = null } = {}) => {
                 return {
                     status: status === 'success',
                     value: value ? Number(value.match(/^[0-9.]+/)[0]) : 0,
@@ -59,15 +59,17 @@ class CrawlerMethod extends MethodInterface {
                         ? from
                               .trim()
                               .replace(/.*(?=0x)/, '')
+                              .replace(/\s.*$/, '')
                               .toLowerCase()
                         : null,
-                    to: interactedwithto
-                        ? interactedwithto
-                              .replace(/contract/i, '')
-                              .trim()
-                              .replace(/.*(?=0x)/, '')
-                              .toLowerCase()
-                        : null,
+                    to:
+                        to || interactedwithto
+                            ? (to || interactedwithto)
+                                  .replace(/contract/i, '')
+                                  .trim()
+                                  .replace(/.*(?=0x)/, '')
+                                  .toLowerCase()
+                            : null,
                 }
             })
             .catch(() => {
