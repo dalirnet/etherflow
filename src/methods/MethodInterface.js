@@ -1,7 +1,7 @@
 class MethodInterface {
     constructor() {
         this.checkRequirements({
-            function: ['getBlockNumber', 'getTxsStatus'],
+            function: ['getBlockNumber', 'getTxnStatus'],
         })
     }
 
@@ -15,7 +15,7 @@ class MethodInterface {
         })
     }
 
-    static defaultTxsStatus = {
+    static defaultTxnStatus = {
         status: false,
         value: 0,
         from: null,

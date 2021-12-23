@@ -23,24 +23,24 @@ inquirer
             message: 'Method action ?',
             choices: [
                 { value: 'getBlockNumber', name: 'Get block number' },
-                { value: 'getTxsStatus', name: 'Get txs status' },
+                { value: 'getTxnStatus', name: 'Get txn status' },
             ],
         },
         {
             type: 'input',
-            name: 'txs',
-            message: 'Txs hash ?',
+            name: 'txn',
+            message: 'Txn hash ?',
             when({ action }) {
-                return action === 'getTxsStatus'
+                return action === 'getTxnStatus'
             },
         },
     ])
-    .then(({ method, action, txs }) => {
+    .then(({ method, action, txn }) => {
         const loading = loadingCli({
             frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'],
         }).start()
 
-        return etherflow[method][action](txs).then((result) => {
+        return etherflow[method][action](txn).then((result) => {
             return {
                 loading,
                 result,

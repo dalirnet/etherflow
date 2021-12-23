@@ -22,9 +22,9 @@ class HttpMethod extends MethodInterface {
             })
     }
 
-    getTxsStatus(txsHash) {
+    getTxnStatus(txnHash) {
         return axios
-            .get(`${this.provider}txs/${txsHash}`)
+            .get(`${this.provider}txn/${txnHash}`)
             .then(({ data }) => {
                 return data
             })
@@ -37,7 +37,7 @@ class HttpMethod extends MethodInterface {
                 }
             })
             .catch(() => {
-                return MethodInterface.defaultTxsStatus
+                return MethodInterface.defaultTxnStatus
             })
     }
 }

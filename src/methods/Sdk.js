@@ -26,10 +26,10 @@ class SdkMethod extends MethodInterface {
             })
     }
 
-    getTxsStatus(txsHash) {
+    getTxnStatus(txnHash) {
         return Promise.allSettled(
             Object.values(this.providers).map((provider) => {
-                return new web3(provider).getTransaction(txsHash).then(({ from = null, to = null, value = 0, blockHash = null } = {}) => {
+                return new web3(provider).getTransaction(txnHash).then(({ from = null, to = null, value = 0, blockHash = null } = {}) => {
                     return {
                         status: !!blockHash,
                         value: Number(web3Utils.fromWei(value)),
@@ -40,15 +40,15 @@ class SdkMethod extends MethodInterface {
             })
         )
             .then((values) => {
-                const successfulTxs = values.find(({ value = {} }) => value?.status)
-                if (successfulTxs) {
-                    return successfulTxs.value
+                const successfulTxn = values.find(({ value = {} }) => value?.status)
+                if (successfulTxn) {
+                    return successfulTxn.value
                 }
 
                 return Promise.reject()
             })
             .catch(() => {
-                return MethodInterface.defaultTxsStatus
+                return MethodInterface.defaultTxnStatus
             })
     }
 }

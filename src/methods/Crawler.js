@@ -25,9 +25,9 @@ class CrawlerMethod extends MethodInterface {
             })
     }
 
-    getTxsStatus(txsHash) {
+    getTxnStatus(txnHash) {
         return axios
-            .get(`${this.provider}tx/${txsHash}`)
+            .get(`${this.provider}tx/${txnHash}`)
             .then(({ data }) => {
                 return data
             })
@@ -71,7 +71,7 @@ class CrawlerMethod extends MethodInterface {
                 }
             })
             .catch(() => {
-                return MethodInterface.defaultTxsStatus
+                return MethodInterface.defaultTxnStatus
             })
     }
 }

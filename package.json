@@ -17,7 +17,7 @@
     "keywords": [
         "ethereum",
         "eth",
-        "txs"
+        "txn"
     ],
     "devDependencies": {
         "@babel/core": "^7.16.5",

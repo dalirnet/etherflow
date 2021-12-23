@@ -71,13 +71,13 @@ const blockNumber = await etherflow.sdk.getBlockNumber()
 console.log(blockNumber) /* 13854282 */
 ```
 
-#### ✔️ **getTxsStatus** Get txs status
+#### ✔️ **getTxnStatus** Get txn status
 
 -   Crawler method
 
 ```javascript
-const TxsHash = '0xc7b6bbc8c1c5c91b79eeb423c71001560b4e4296078de7d8d401e85afa40b5dc'
-etherflow.crawler.getTxsStatus(TxsHash).then(({ status, value, from, to }) => {
+const TxnHash = '0xc7b6bbc8c1c5c91b79eeb423c71001560b4e4296078de7d8d401e85afa40b5dc'
+etherflow.crawler.getTxnStatus(TxnHash).then(({ status, value, from, to }) => {
     console.log(status)
     /* true */
 
@@ -93,7 +93,7 @@ etherflow.crawler.getTxsStatus(TxsHash).then(({ status, value, from, to }) => {
 
 // or
 
-const result = await etherflow.crawler.getTxsStatus('0x0000')
+const result = await etherflow.crawler.getTxnStatus('0x0000')
 console.log(result)
 /*
     {
@@ -108,8 +108,8 @@ console.log(result)
 -   Http method
 
 ```javascript
-const TxsHash = '0xc7b6bbc8c1c5c91b79eeb423c71001560b4e4296078de7d8d401e85afa40b5dc'
-etherflow.http.getTxsStatus(TxsHash).then(({ status, value, from, to }) => {
+const TxnHash = '0xc7b6bbc8c1c5c91b79eeb423c71001560b4e4296078de7d8d401e85afa40b5dc'
+etherflow.http.getTxnStatus(TxnHash).then(({ status, value, from, to }) => {
     console.log(status)
     /* true */
 
@@ -125,7 +125,7 @@ etherflow.http.getTxsStatus(TxsHash).then(({ status, value, from, to }) => {
 
 // or
 
-const result = await etherflow.http.getTxsStatus('0x0000')
+const result = await etherflow.http.getTxnStatus('0x0000')
 console.log(result)
 /*
     {
@@ -140,8 +140,8 @@ console.log(result)
 -   Sdk method
 
 ```javascript
-const TxsHash = '0xc7b6bbc8c1c5c91b79eeb423c71001560b4e4296078de7d8d401e85afa40b5dc'
-etherflow.sdk.getTxsStatus(TxsHash).then(({ status, value, from, to }) => {
+const TxnHash = '0xc7b6bbc8c1c5c91b79eeb423c71001560b4e4296078de7d8d401e85afa40b5dc'
+etherflow.sdk.getTxnStatus(TxnHash).then(({ status, value, from, to }) => {
     console.log(status)
     /* true */
 
@@ -157,7 +157,7 @@ etherflow.sdk.getTxsStatus(TxsHash).then(({ status, value, from, to }) => {
 
 // or
 
-const result = await etherflow.sdk.getTxsStatus('0x0000')
+const result = await etherflow.sdk.getTxnStatus('0x0000')
 console.log(result)
 /*
     {
@@ -194,14 +194,14 @@ npm run test
   √ Get block number by sdk (1988 ms)
 ```
 
--   getTxsStatus
+-   getTxnStatus
 
 ```bash
- PASS  test/getTxsStatus.test.js (12.643 s)
-  √ Get valid txs status by Crawler (3699 ms)
-  √ Get invalid txs status by Crawler (1751 ms)
-  √ Get valid txs status by Http (1472 ms)
-  √ Get invalid txs status by Http (1307 ms)
-  √ Get valid txs status by Sdk (1293 ms)
-  √ Get invalid txs status by Sdk (1716 ms)
+ PASS  test/getTxnStatus.test.js (12.643 s)
+  √ Get valid txn status by Crawler (3699 ms)
+  √ Get invalid txn status by Crawler (1751 ms)
+  √ Get valid txn status by Http (1472 ms)
+  √ Get invalid txn status by Http (1307 ms)
+  √ Get valid txn status by Sdk (1293 ms)
+  √ Get invalid txn status by Sdk (1716 ms)
 ```
