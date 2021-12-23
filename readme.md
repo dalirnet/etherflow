@@ -4,7 +4,7 @@
 
 -   getBlockNumber
 
--   getBlockNumber
+-   getTxnStatus
 
 ![carbon](https://raw.githubusercontent.com/dalirnet/etherflow/master/carbon.png)
 
